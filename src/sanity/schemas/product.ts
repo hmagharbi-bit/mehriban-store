@@ -7,7 +7,7 @@ export const productSchema = {
             name: 'nom',
             title: 'Nom du Produit (Title)',
             type: 'string',
-            validation: Rule => Rule.required()
+            validation: (Rule: any) => Rule.required()
         },
         {
             name: 'maison',
@@ -22,7 +22,7 @@ export const productSchema = {
                 source: 'nom',
                 maxLength: 96
             },
-            validation: Rule => Rule.required()
+            validation: (Rule: any) => Rule.required()
         },
         {
             name: 'volume',
@@ -33,7 +33,7 @@ export const productSchema = {
             name: 'prix',
             title: 'Prix (Price)',
             type: 'number',
-            validation: Rule => Rule.required()
+            validation: (Rule: any) => Rule.required()
         },
         {
             name: 'image',
