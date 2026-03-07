@@ -1,0 +1,47 @@
+@import "tailwindcss";
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-obsidian: #050505;
+  --color-royal-gold: #d4af37;
+  --color-emerald-deep: #047857;
+  --color-electric-cyan: #00f0ff;
+  --color-neon-violet: #b829ea;
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+}
+
+:root {
+  --background: #022c22;
+  /* Deep Emerald Default */
+  --foreground: #ededed;
+}
+
+body {
+  background: radial-gradient(circle at 50% 0%, #022c22 0%, #050505 100%);
+  background-attachment: fixed;
+  color: var(--foreground);
+  font-family: var(--font-sans), Arial, Helvetica, sans-serif;
+}
+
+@utility glassmorphism {
+  background: rgba(6, 78, 59, 0.2);
+  /* Deep emerald tint */
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(212, 175, 55, 0.15);
+  /* Royal gold subtle border */
+}
+
+@utility obsidian-gradient {
+  background: radial-gradient(circle at 50% 0%, #064e3b 0%, #022c22 100%);
+}
+
+@utility digital-stitching {
+  background-image: linear-gradient(rgba(212, 175, 55, 0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(212, 175, 55, 0.03) 1px, transparent 1px);
+  background-size: 20px 20px;
+  /* Smaller grid */
+  background-position: center;
+}
