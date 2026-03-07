@@ -6,6 +6,7 @@ import Footer from '@/components/Footer';
 import PageTransition from '@/components/PageTransition';
 import GlobalBackground from '@/components/GlobalBackground';
 import SideCart from '@/components/SideCart';
+import { SpeedInsights } from "@vercel/speed-insights/next";
 
 const notoSerif = Noto_Serif({
   variable: '--font-noto-serif',
@@ -41,6 +42,7 @@ export default function RootLayout({
           </PageTransition>
           <Footer />
         </main>
+        <SpeedInsights />
       </body>
     </html>
   );
