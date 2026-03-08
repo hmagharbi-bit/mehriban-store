@@ -4,7 +4,7 @@ import { schemaTypes } from './src/sanity/schemas'
 
 export default defineConfig({
     name: 'default',
-    title: 'MEHRIBAN',
+    title: 'mehriban',
     projectId: (() => {
         const val = process.env.NEXT_PUBLIC_SANITY_PROJECT_ID
         return (val ? val.replace(/['"\s]+/g, '') : '') || '17ryprkd'
