@@ -5,9 +5,15 @@ import { schemaTypes } from './src/sanity/schemas'
 export default defineConfig({
     name: 'default',
     title: 'MEHRIBAN',
-    projectId: process.env.NEXT_PUBLIC_SANITY_PROJECT_ID || '17ryprkd',
-    dataset: process.env.NEXT_PUBLIC_SANITY_DATASET || 'production',
-    basePath: '/admin',
+    projectId: (() => {
+        const val = process.env.NEXT_PUBLIC_SANITY_PROJECT_ID
+        return (val ? val.replace(/['"\s]+/g, '') : '') || '17ryprkd'
+    })(),
+    dataset: (() => {
+        const val = process.env.NEXT_PUBLIC_SANITY_DATASET
+        return (val ? val.replace(/['"\s]+/g, '') : '') || 'production'
+    })(),
+    basePath: '/studio',
     plugins: [structureTool()],
     schema: {
         types: schemaTypes,
