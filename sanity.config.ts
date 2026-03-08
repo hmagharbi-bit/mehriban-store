@@ -13,7 +13,7 @@ export default defineConfig({
         const val = process.env.NEXT_PUBLIC_SANITY_DATASET
         return (val ? val.replace(/['"\s]+/g, '') : '') || 'production'
     })(),
-    basePath: '/studio',
+    basePath: '/admin',
     plugins: [structureTool()],
     schema: {
         types: schemaTypes,
