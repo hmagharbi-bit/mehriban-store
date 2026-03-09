@@ -1,0 +1,21 @@
+{
+    "Navbar": {
+        "home": "Accueil",
+        "shop": "Boutique",
+        "contact": "Contact"
+    },
+    "Cart": {
+        "title": "Panier",
+        "empty": "Votre panier est vide",
+        "continue": "CONTINUER VOS ACHATS",
+        "total": "Total",
+        "checkout": "VOIR LE PANIER"
+    },
+    "Product": {
+        "add": "AJOUTER AU PANIER",
+        "notes_title": "NOTES OLFACTIVES",
+        "top_notes": "Tête",
+        "heart_notes": "Cœur",
+        "base_notes": "Fond"
+    }
+}
