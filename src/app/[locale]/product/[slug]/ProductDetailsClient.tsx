@@ -41,7 +41,7 @@ export default function ProductDetailsClient({ product, relatedProducts }: { pro
     };
 
     return (
-        <div className="container mx-auto px-6 py-24 min-h-screen flex flex-col relative">
+        <div className="container mx-auto p-4 md:p-12 min-h-screen flex flex-col relative">
             {/* Dynamic Background Glow */}
             <div className="absolute top-1/4 left-1/4 w-[600px] h-[600px] bg-royal-gold/5 rounded-full blur-[120px] pointer-events-none" />
 
@@ -89,7 +89,7 @@ export default function ProductDetailsClient({ product, relatedProducts }: { pro
                                         alt={product.nom}
                                         fill
                                         sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-                                        className="object-contain relative z-10 transform translate-z-12 drop-shadow-2xl"
+                                        className="object-contain w-full relative z-10 transform translate-z-12 drop-shadow-2xl"
                                         priority
                                     />
                                 </motion.div>
