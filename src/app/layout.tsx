@@ -1,5 +1,5 @@
 import type { Metadata } from 'next';
-import { Noto_Serif, Manrope, Geist } from 'next/font/google';
+import { Noto_Serif, Manrope } from 'next/font/google';
 import './globals.css';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
@@ -7,9 +7,6 @@ import PageTransition from '@/components/PageTransition';
 import GlobalBackground from '@/components/GlobalBackground';
 import SideCart from '@/components/SideCart';
 import { SpeedInsights } from "@vercel/speed-insights/next";
-import { cn } from "@/lib/utils";
-
-const geist = Geist({subsets:['latin'],variable:'--font-sans'});
 
 const notoSerif = Noto_Serif({
   variable: '--font-noto-serif',
@@ -32,7 +29,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="fr" className={cn("font-sans", geist.variable)}>
+    <html lang="fr">
       <body
         className={`${notoSerif.variable} ${manrope.variable} antialiased text-foreground min-h-screen`}
       >
