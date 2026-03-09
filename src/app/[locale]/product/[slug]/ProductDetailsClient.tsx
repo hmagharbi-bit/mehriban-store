@@ -41,7 +41,7 @@ export default function ProductDetailsClient({ product, relatedProducts }: { pro
     };
 
     return (
-        <div className="container mx-auto p-4 md:p-12 min-h-screen flex flex-col relative">
+        <div className="container mx-auto px-6 py-24 min-h-screen flex flex-col relative">
             {/* Dynamic Background Glow */}
             <div className="absolute top-1/4 left-1/4 w-[600px] h-[600px] bg-royal-gold/5 rounded-full blur-[120px] pointer-events-none" />
 
@@ -66,13 +66,13 @@ export default function ProductDetailsClient({ product, relatedProducts }: { pro
                         initial={{ opacity: 0, x: -50 }}
                         animate={{ opacity: 1, x: 0 }}
                         transition={{ duration: 0.8 }}
-                        className="w-full max-w-[280px] sm:max-w-sm md:max-w-md relative mb-8 mx-auto lg:mx-0"
+                        className="w-full max-w-md relative mb-8"
                     >
                         {/* 3D Hover Container for Main Image */}
                         <motion.div
                             whileHover={{ rotateY: 10, rotateX: -5, scale: 1.05 }}
                             transition={{ type: "spring", stiffness: 300, damping: 20 }}
-                            className="relative aspect-[4/5] md:aspect-[3/4] rounded-3xl p-4 md:p-10 overflow-hidden group bg-[#022c22]/10 border border-royal-gold/10 w-full"
+                            className="relative aspect-[3/4] rounded-3xl p-8 overflow-hidden group bg-[#022c22]/10 border border-royal-gold/10"
                             style={{ transformStyle: 'preserve-3d' }}
                         >
                             <AnimatePresence mode="wait">
@@ -89,7 +89,7 @@ export default function ProductDetailsClient({ product, relatedProducts }: { pro
                                         alt={product.nom}
                                         fill
                                         sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-                                        className="object-contain w-full relative z-10 transform translate-z-12 drop-shadow-2xl"
+                                        className="object-contain relative z-10 transform translate-z-12 drop-shadow-2xl"
                                         priority
                                     />
                                 </motion.div>
