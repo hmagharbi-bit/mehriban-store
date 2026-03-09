@@ -22,7 +22,7 @@ async function deleteDemoProducts() {
     const query = `*[_type in ["product", "parfum"] && (nom match "reef 33" || maison != "MEHRIBAN")] { _id, nom, maison }`;
 
     try {
-        const productsToDelete = await client.fetch(query);
+        const productsToDelete: { _id: string, nom: string, maison: string }[] = await client.fetch(query);
 
         if (productsToDelete.length === 0) {
             console.log('No demo products found matching the criteria.');
