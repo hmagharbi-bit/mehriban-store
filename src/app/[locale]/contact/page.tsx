@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Mail, Phone, MapPin } from "lucide-react";
+import { Mail, Phone, MapPin, Instagram, Facebook } from "lucide-react";
 
 export default function ContactPage() {
     return (
@@ -27,7 +27,7 @@ export default function ContactPage() {
                                 <Mail className="w-5 h-5" />
                             </div>
                             <h3 className="font-[family-name:var(--font-noto-serif)] text-white tracking-widest mb-2">EMAIL</h3>
-                            <p className="font-[family-name:var(--font-manrope)] text-sm text-gray-400 font-light">contact@mehriban.fr</p>
+                            <p className="font-[family-name:var(--font-manrope)] text-sm text-gray-400 font-light">hmagharbi@gmail.com</p>
                         </div>
 
                         <div className="flex flex-col items-center text-center or md:items-start md:text-left">
@@ -35,7 +35,7 @@ export default function ContactPage() {
                                 <Phone className="w-5 h-5" />
                             </div>
                             <h3 className="font-[family-name:var(--font-noto-serif)] text-white tracking-widest mb-2">TÉLÉPHONE</h3>
-                            <p className="font-[family-name:var(--font-manrope)] text-sm text-gray-400 font-light">+33 1 23 45 67 89</p>
+                            <p className="font-[family-name:var(--font-manrope)] text-sm text-gray-400 font-light">0556960192</p>
                             <span className="font-[family-name:var(--font-manrope)] text-xs text-gray-500 mt-1">Du Lundi au Samedi, 10h-19h</span>
                         </div>
 
@@ -47,6 +47,19 @@ export default function ContactPage() {
                             <p className="font-[family-name:var(--font-manrope)] text-sm text-gray-400 font-light leading-relaxed">
                                 42 Avenue Montaigne<br />75008 Paris, France
                             </p>
+                        </div>
+
+                        {/* Social Media Placeholder */}
+                        <div className="flex flex-col items-center text-center or md:items-start md:text-left pt-4 border-t border-royal-gold/20">
+                            <h3 className="font-[family-name:var(--font-noto-serif)] text-white tracking-widest mb-4">SUIVEZ-NOUS</h3>
+                            <div className="flex items-center gap-4">
+                                <a href="#" className="w-10 h-10 rounded-full border border-royal-gold/30 flex items-center justify-center text-royal-gold hover:bg-royal-gold hover:text-obsidian transition-colors">
+                                    <Instagram className="w-4 h-4" />
+                                </a>
+                                <a href="#" className="w-10 h-10 rounded-full border border-royal-gold/30 flex items-center justify-center text-royal-gold hover:bg-royal-gold hover:text-obsidian transition-colors">
+                                    <Facebook className="w-4 h-4" />
+                                </a>
+                            </div>
                         </div>
                     </div>
 
