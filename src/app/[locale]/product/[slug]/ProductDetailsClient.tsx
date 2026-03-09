@@ -66,13 +66,13 @@ export default function ProductDetailsClient({ product, relatedProducts }: { pro
                         initial={{ opacity: 0, x: -50 }}
                         animate={{ opacity: 1, x: 0 }}
                         transition={{ duration: 0.8 }}
-                        className="w-full max-w-md relative mb-8"
+                        className="w-full max-w-[280px] sm:max-w-sm md:max-w-md relative mb-8 mx-auto lg:mx-0"
                     >
                         {/* 3D Hover Container for Main Image */}
                         <motion.div
                             whileHover={{ rotateY: 10, rotateX: -5, scale: 1.05 }}
                             transition={{ type: "spring", stiffness: 300, damping: 20 }}
-                            className="relative aspect-[3/4] rounded-3xl p-2 md:p-10 overflow-hidden group bg-[#022c22]/10 border border-royal-gold/10 w-full"
+                            className="relative aspect-[4/5] md:aspect-[3/4] rounded-3xl p-4 md:p-10 overflow-hidden group bg-[#022c22]/10 border border-royal-gold/10 w-full"
                             style={{ transformStyle: 'preserve-3d' }}
                         >
                             <AnimatePresence mode="wait">
