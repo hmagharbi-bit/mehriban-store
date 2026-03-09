@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Mail, Phone, MapPin, Instagram, Facebook } from "lucide-react";
+import { Mail, Phone, Instagram, Facebook } from "lucide-react";
 
 export default function ContactPage() {
     return (
@@ -36,17 +36,6 @@ export default function ContactPage() {
                             </div>
                             <h3 className="font-[family-name:var(--font-noto-serif)] text-white tracking-widest mb-2">TÉLÉPHONE</h3>
                             <p className="font-[family-name:var(--font-manrope)] text-sm text-gray-400 font-light">0556960192</p>
-                            <span className="font-[family-name:var(--font-manrope)] text-xs text-gray-500 mt-1">Du Lundi au Samedi, 10h-19h</span>
-                        </div>
-
-                        <div className="flex flex-col items-center text-center or md:items-start md:text-left">
-                            <div className="w-12 h-12 rounded-full border border-royal-gold/30 flex items-center justify-center mb-4 text-royal-gold">
-                                <MapPin className="w-5 h-5" />
-                            </div>
-                            <h3 className="font-[family-name:var(--font-noto-serif)] text-white tracking-widest mb-2">BOUTIQUE</h3>
-                            <p className="font-[family-name:var(--font-manrope)] text-sm text-gray-400 font-light leading-relaxed">
-                                42 Avenue Montaigne<br />75008 Paris, France
-                            </p>
                         </div>
 
                         {/* Social Media Placeholder */}
