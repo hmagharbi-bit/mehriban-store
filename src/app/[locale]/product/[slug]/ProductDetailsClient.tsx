@@ -72,7 +72,7 @@ export default function ProductDetailsClient({ product, relatedProducts }: { pro
                         <motion.div
                             whileHover={{ rotateY: 10, rotateX: -5, scale: 1.05 }}
                             transition={{ type: "spring", stiffness: 300, damping: 20 }}
-                            className="relative aspect-[3/4] rounded-3xl p-8 overflow-hidden group bg-[#022c22]/10 border border-royal-gold/10"
+                            className="relative aspect-[3/4] rounded-3xl p-2 md:p-10 overflow-hidden group bg-[#022c22]/10 border border-royal-gold/10 w-full"
                             style={{ transformStyle: 'preserve-3d' }}
                         >
                             <AnimatePresence mode="wait">
