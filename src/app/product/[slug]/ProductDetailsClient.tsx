@@ -1,13 +1,33 @@
 'use client';
 
-import { motion } from 'framer-motion';
+import React, { useState } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
 import { ShoppingBag, ChevronRight, Wind, Droplets, Mountain } from 'lucide-react';
 import Link from 'next/link';
+import Image from 'next/image';
 import { useCartStore } from '@/store/useCartStore';
 import { urlForImage } from '@/sanity/lib/image';
 
 export default function ProductDetailsClient({ product }: { product: any }) {
     const addItem = useCartStore(state => state.addItem);
+
+    // Initialize gallery with product images or fallback to the main image
+    const initialMainImage = product.image ? urlForImage(product.image).url() : "https://images.unsplash.com/photo-1594035910387-fea47794261f?q=80&w=1200";
+
+    // Create an array of all images
+    const allImages = React.useMemo(() => {
+        const imagesArray = [];
+        if (product.image) imagesArray.push(urlForImage(product.image).url());
+        if (product.images && Array.isArray(product.images)) {
+            product.images.forEach((img: any) => {
+                imagesArray.push(urlForImage(img).url());
+            });
+        }
+        if (imagesArray.length === 0) imagesArray.push(initialMainImage);
+        return imagesArray;
+    }, [product.image, product.images, initialMainImage]);
+
+    const [selectedImage, setSelectedImage] = useState(allImages[0]);
 
     const handleAddToCart = () => {
         addItem({
@@ -39,28 +59,66 @@ export default function ProductDetailsClient({ product }: { product: any }) {
 
             <div className="flex flex-col lg:flex-row gap-16 items-center">
 
-                {/* Left: Interactive 3D Image */}
-                <div className="w-full lg:w-1/2 flex-shrink-0 flex items-center justify-center relative perspective-1000">
+                {/* Left: Interactive 3D Image & Thumbnails */}
+                <div className="w-full lg:w-1/2 flex-shrink-0 flex flex-col items-center justify-center relative perspective-1000">
                     <motion.div
                         initial={{ opacity: 0, x: -50 }}
                         animate={{ opacity: 1, x: 0 }}
                         transition={{ duration: 0.8 }}
-                        className="w-full max-w-md relative"
+                        className="w-full max-w-md relative mb-8"
                     >
-                        {/* 3D Hover Container */}
+                        {/* 3D Hover Container for Main Image */}
                         <motion.div
                             whileHover={{ rotateY: 10, rotateX: -5, scale: 1.05 }}
                             transition={{ type: "spring", stiffness: 300, damping: 20 }}
-                            className="relative aspect-[3/4] rounded-3xl p-8 overflow-hidden group bg-transparent"
+                            className="relative aspect-[3/4] rounded-3xl p-8 overflow-hidden group bg-[#022c22]/10 border border-royal-gold/10"
                             style={{ transformStyle: 'preserve-3d' }}
                         >
-                            <img
-                                src={product.image && typeof product.image === 'object' ? urlForImage(product.image).url() : product.image || "https://images.unsplash.com/photo-1594035910387-fea47794261f?q=80&w=1200"}
-                                alt={product.nom}
-                                className="w-full h-full object-contain relative z-10 transform translate-z-12"
-                            />
+                            <AnimatePresence mode="wait">
+                                <motion.div
+                                    key={selectedImage}
+                                    initial={{ opacity: 0, scale: 0.95 }}
+                                    animate={{ opacity: 1, scale: 1 }}
+                                    exit={{ opacity: 0, scale: 1.05 }}
+                                    transition={{ duration: 0.5, ease: "easeInOut" }}
+                                    className="w-full h-full relative"
+                                >
+                                    <Image
+                                        src={selectedImage}
+                                        alt={product.nom}
+                                        fill
+                                        sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                                        className="object-contain relative z-10 transform translate-z-12 drop-shadow-2xl"
+                                        priority
+                                    />
+                                </motion.div>
+                            </AnimatePresence>
                         </motion.div>
                     </motion.div>
+
+                    {/* Scrollable Thumbnails Row */}
+                    {allImages.length > 1 && (
+                        <div className="w-full max-w-md flex items-center gap-4 overflow-x-auto scrollbar-hide py-2 px-1">
+                            {allImages.map((img: string, idx: number) => (
+                                <button
+                                    key={idx}
+                                    onClick={() => setSelectedImage(img)}
+                                    className={`relative flex-shrink-0 w-20 h-24 rounded-md overflow-hidden border-2 transition-all duration-300 ${selectedImage === img
+                                        ? 'border-royal-gold opacity-100 scale-105 shadow-[0_0_15px_rgba(212,175,55,0.4)]'
+                                        : 'border-transparent opacity-50 hover:opacity-100 hover:border-royal-gold/30 hover:scale-105'
+                                        }`}
+                                >
+                                    <Image
+                                        src={img}
+                                        alt={`Thumbnail ${idx + 1}`}
+                                        fill
+                                        sizes="80px"
+                                        className="object-cover bg-[#022c22]/30"
+                                    />
+                                </button>
+                            ))}
+                        </div>
+                    )}
                 </div>
 
                 {/* Right: Details & Notes Olfactives */}

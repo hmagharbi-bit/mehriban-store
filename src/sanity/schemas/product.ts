@@ -37,11 +37,17 @@ export const productSchema = {
         },
         {
             name: 'image',
-            title: 'Main Image',
+            title: 'Main Image (Featured)',
             type: 'image',
             options: {
                 hotspot: true
             }
+        },
+        {
+            name: 'images',
+            title: 'Product Images Gallery',
+            type: 'array',
+            of: [{ type: 'image', options: { hotspot: true } }]
         },
         {
             name: 'notes',

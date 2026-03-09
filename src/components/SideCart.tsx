@@ -17,9 +17,6 @@ export default function SideCart() {
     if (!mounted) return null;
 
     const total = getCartTotal();
-    const freeShippingThreshold = 20000; // Example threshold: 20,000 DZD
-    const progress = Math.min((total / freeShippingThreshold) * 100, 100);
-    const isFreeShipping = total >= freeShippingThreshold;
 
     const parseImageUrl = (image: any) => {
         if (!image) return "https://images.unsplash.com/photo-1594035910387-fea47794261f?q=80&w=400";
@@ -60,24 +57,6 @@ export default function SideCart() {
                             >
                                 <X className="w-6 h-6" />
                             </button>
-                        </div>
-
-                        {/* Free Shipping Bar */}
-                        <div className="p-6 pb-2 bg-[#022c22]">
-                            <p className="text-sm text-center mb-3 font-[family-name:var(--font-manrope)] text-gray-300">
-                                {isFreeShipping
-                                    ? <span className="text-[#c5a059] font-medium tracking-wide">Félicitations ! Livraison gratuite débloquée.</span>
-                                    : <>Il vous manque <span className="text-[#c5a059] font-bold">{(freeShippingThreshold - total).toLocaleString()} DZD</span> pour la livraison gratuite.</>
-                                }
-                            </p>
-                            <div className="w-full h-1.5 bg-black/40 rounded-full overflow-hidden border border-white/5">
-                                <motion.div
-                                    initial={{ width: 0 }}
-                                    animate={{ width: `${progress}%` }}
-                                    transition={{ duration: 0.5, ease: "easeOut" }}
-                                    className="h-full bg-gradient-to-r from-emerald-600 to-[#c5a059]"
-                                />
-                            </div>
                         </div>
 
                         {/* Items */}

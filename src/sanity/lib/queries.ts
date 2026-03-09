@@ -7,6 +7,7 @@ export const ALL_PRODUCTS_QUERY = groq`
     maison,
     prix,
     image,
+    images,
     slug,
     volume,
     notes
@@ -20,6 +21,7 @@ export const PRODUCT_BY_SLUG_QUERY = groq`
     maison,
     prix,
     image,
+    images,
     slug,
     volume,
     notes

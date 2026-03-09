@@ -21,7 +21,18 @@ export const parfumSchema = {
         { name: 'fond', title: 'Notes de Fond', type: 'string' }
       ]
     },
-    { name: 'image', title: 'Image', type: 'string' }, // use string for mock image url for now
+    {
+      name: 'image',
+      title: 'Main Image (Featured)',
+      type: 'image',
+      options: { hotspot: true }
+    },
+    {
+      name: 'images',
+      title: 'Product Images Gallery',
+      type: 'array',
+      of: [{ type: 'image', options: { hotspot: true } }]
+    },
     { name: 'prix', title: 'Prix', type: 'number' }
   ]
 }
