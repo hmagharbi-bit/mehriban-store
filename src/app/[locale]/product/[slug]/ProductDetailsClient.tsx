@@ -89,7 +89,7 @@ export default function ProductDetailsClient({ product, relatedProducts }: { pro
                                         alt={product.nom}
                                         fill
                                         sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-                                        className="object-contain relative z-10 transform translate-z-12 drop-shadow-2xl"
+                                        className="object-contain w-full h-full relative z-10 transform translate-z-12 drop-shadow-2xl"
                                         priority
                                     />
                                 </motion.div>
