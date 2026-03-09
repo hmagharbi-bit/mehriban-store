@@ -7,8 +7,9 @@ import Link from 'next/link';
 import Image from 'next/image';
 import { useCartStore } from '@/store/useCartStore';
 import { urlForImage } from '@/sanity/lib/image';
+import RelatedProducts from '@/components/RelatedProducts';
 
-export default function ProductDetailsClient({ product }: { product: any }) {
+export default function ProductDetailsClient({ product, relatedProducts }: { product: any, relatedProducts: any[] }) {
     const addItem = useCartStore(state => state.addItem);
 
     // Initialize gallery with product images or fallback to the main image
@@ -208,6 +209,11 @@ export default function ProductDetailsClient({ product }: { product: any }) {
                         AJOUTER AU PANIER
                     </motion.button>
                 </motion.div>
+            </div>
+
+            {/* Related Products Section */}
+            <div className="mt-16 sm:mt-24 w-full relative z-20">
+                <RelatedProducts products={relatedProducts} />
             </div>
         </div>
     );

@@ -27,3 +27,15 @@ export const PRODUCT_BY_SLUG_QUERY = groq`
     notes
   }
 `;
+
+export const RELATED_PRODUCTS_QUERY = groq`
+  *[_type in ["product", "parfum"] && maison == $maison && slug.current != $slug][0...4] | order(_createdAt desc) {
+    _id,
+    nom,
+    maison,
+    prix,
+    image,
+    images,
+    slug
+  }
+`;

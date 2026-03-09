@@ -1,6 +1,6 @@
 import { client } from '@/sanity/lib/client'
 import ProductDetailsClient from './ProductDetailsClient'
-import { PRODUCT_BY_SLUG_QUERY } from '@/sanity/lib/queries'
+import { PRODUCT_BY_SLUG_QUERY, RELATED_PRODUCTS_QUERY } from '@/sanity/lib/queries'
 
 export default async function ProductPage({ params }: { params: any }) {
 
@@ -21,5 +21,9 @@ export default async function ProductPage({ params }: { params: any }) {
         )
     }
 
-    return <ProductDetailsClient product={product} />
+    const relatedProducts = await client
+        .fetch(RELATED_PRODUCTS_QUERY, { slug, maison: product.maison })
+        .catch(() => [])
+
+    return <ProductDetailsClient product={product} relatedProducts={relatedProducts} />
 }
